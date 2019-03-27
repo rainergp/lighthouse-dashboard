@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+//@import "./variables";
+@import "./mixins";
+//@import "./custom";
+
+// this is your created themes.scss file, make sure the path to the file is correct
+@import 'themes';
+
+@import '../../node_modules/@nebular/theme/styles/globals';
+
+@include nb-install() {
+	@include nb-theme-global();
+};
+
+@import "./fonts/fonts";
+//@import "common";
+//@import "override";
+
+/* You can add global styles to this file, and also import other style files */

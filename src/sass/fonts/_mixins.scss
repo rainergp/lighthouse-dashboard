@@ -1,0 +1,8 @@
+@mixin font-definition($path, $version, $font-family, $font-type:"Regular") {
+	src: url('#{$path}/#{$font-type}/#{$font-family}-#{$font-type}.eot?v=#{$version}');
+	src: url('#{$path}/#{$font-type}/#{$font-family}-#{$font-type}.eot?#iefix&v=#{$version}') format('embedded-opentype'),
+	url('#{$path}/#{$font-type}/#{$font-family}-#{$font-type}.woff2?v=#{$version}') format('woff2'),
+	url('#{$path}/#{$font-type}/#{$font-family}-#{$font-type}.woff?v=#{$version}') format('woff'),
+	url('#{$path}/#{$font-type}/#{$font-family}-#{$font-type}.ttf?v=#{$version}') format('truetype'),
+	url('#{$path}/#{$font-type}/#{$font-family}-#{$font-type}.svg?v=#{$version}##{$font-type}') format('svg');
+}

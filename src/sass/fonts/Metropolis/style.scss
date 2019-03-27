@@ -1,0 +1,127 @@
+@import "variables";
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "Black");
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "BlackItalic");
+	font-weight: 900;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "ExtraBold");
+	font-weight: 800;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "ExtraBoldItalic");
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "Bold");
+	font-weight: bold; //700
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "BoldItalic");
+	font-weight: bold; //700
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "SemiBold");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "SemiBoldItalic");
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "Medium");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "MediumItalic");
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "Regular");
+	font-weight: normal; //400
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "RegularItalic");
+	font-weight: normal; //400
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "Light");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "LightItalic");
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "ExtraLight");
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "ExtraLightItalic");
+	font-weight: 200;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "Thin");
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: $font-family;
+	@include font-definition($font-path, $font-version, $font-family, "ThinItalic");
+	font-weight: 100;
+	font-style: italic;
+}

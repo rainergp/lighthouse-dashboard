@@ -1,0 +1,340 @@
+//
+// These override the boostrap breakpoint sizes to effectively disable the
+// smaller breakpoints.
+//
+$container-max-widths: (
+	sm: 1px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px
+);
+$grid-breakpoints: (
+	xs: 0,
+	sm: 1px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+);
+
+//
+// Color system
+//
+
+$background: #FAFAFC;
+
+$gray-100: #F9F9FA;
+$gray-200: #F0F2F5;
+$gray-250: #EAECF0;
+$gray-300: #EAEDF0;
+$gray-400: #DFE1E5;
+$gray-500: #CACDD3;
+$gray-600: #B5B9C2;
+$gray-700: #959BA7;
+$gray-710: #969BA8;
+$gray-800: #3E434D;
+$gray-900: #25282E;
+
+$primary-text-color: $gray-800;
+$secondary-text-color: $gray-700;
+$third-level-color: $gray-500;
+$forth-level-color: $gray-300;
+
+$light: $forth-level-color;
+$dark: $primary-text-color;
+
+$black: #000;
+$white: #fff;
+
+$logo-color: #1847AF;
+
+$blue: #005696;
+$purple: #A55EEF;
+$plum: #9D006B;
+$red: #DC3737;
+$orange: #FF9D47;
+$yellow: #F4D14D;
+$green: #009B3A;
+$teal: #00B2D5;
+$olive: #9FAE17;
+$gray: $gray-700;
+
+$colors: ();
+$colors: map-merge((
+	"blue": $blue,
+	"purple": $purple,
+	"plum": $plum,
+	"red": $red,
+	"orange": $orange,
+	"yellow": $yellow,
+	"green": $green,
+	"teal": $teal,
+	"olive": $olive,
+	"white": $white,
+	"gray": $gray-600,
+	"gray-dark": $gray-800
+), $colors);
+
+$primary: $blue;
+$secondary: $gray;
+$success: $green;
+$info: $teal;
+$warning: $orange;
+$danger: $red;
+
+$label-retail: #0ac7bb;
+$label-health-wellness: #9fae17;
+$label-education-discounts: #3e73df;
+$label-financial-services: #6826ac;
+$label-travel-entertainment: #b12c8b;
+$label-discount-programs: #ee7141;
+
+$theme-colors: ();
+$theme-colors: map-merge((
+	"primary": $primary,
+	"secondary": $secondary,
+	"success": $success,
+	"info": $info,
+	"warning": $warning,
+	"danger": $danger,
+	"light": $light,
+	"dark": $dark,
+	"blue": $blue,
+	"purple": $purple,
+	"plum": $plum,
+	"red": $red,
+	"orange": $orange,
+	"yellow": $yellow,
+	"green": $green,
+	"teal": $teal,
+	"olive": $olive,
+	"label-retail": $label-retail,
+	"label-health-wellness": $label-health-wellness,
+	"label-education-discounts": $label-education-discounts,
+	"label-financial-services": $label-financial-services,
+	"label-travel-entertainment": $label-travel-entertainment,
+	"label-discount-programs": $label-discount-programs
+), $theme-colors);
+
+$spacer: 1rem;
+
+// Body
+$body-color: $primary-text-color;
+$body-font-size: 0.875rem;
+
+// Fonts
+
+$font-family-sans-serif: "Roboto", "Adobe Blank", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-sans-serif-secondary: $font-family-sans-serif;
+
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base: $font-family-sans-serif;
+
+$font-weight-normal: 400;
+$font-weight-500: 500;
+$font-size-base: 1.0rem;
+
+$line-height-base: 1.71;
+$font-weight-base: $font-weight-normal;
+
+$font-family-icomoon: "icomoon";
+
+// Typography
+$h1-font-size: $font-size-base * 1.625;
+$h2-font-size: $font-size-base * 1.5;
+$h3-font-size: $font-size-base * 1;
+$h4-font-size: $font-size-base * 0.875;
+$h5-font-size: $font-size-base * 0.75;
+$h6-font-size: $font-size-base * 0.6875;
+
+$display1-size: $h1-font-size;
+$display2-size: $h2-font-size;
+$display3-size: $h3-font-size;
+$display4-size: $h4-font-size;
+
+$display1-weight: 500;
+$display2-weight: 500;
+$display3-weight: 500;
+$display4-weight: 500;
+
+$small-subheading-font-size: $font-size-base * 0.75;
+$links-buttons-font-size: $font-size-base * 0.875;
+
+$headings-margin-bottom: ($spacer / 2);
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 300;
+$headings-line-height: 1.2;
+$headings-color: inherit;
+
+// Buttons
+$btn-font-weight: 700;
+$btn-font-size: 0.688rem;
+
+$btn-border-radius: 5px;
+
+$btn-border-width: 2px;
+$btn-link-disabled-color: $gray-600;
+
+$input-btn-padding-y: 0.625rem;
+$input-btn-padding-x: 1.1rem;
+$btn-line-height: 0.75rem;
+
+$btn-padding-y-sm: 0.4375rem;
+$btn-padding-x-sm: $input-btn-padding-x;
+$btn-line-height-sm: $btn-line-height;
+
+$btn-padding-y-lg: 0.9375rem;
+$btn-padding-x-lg: $input-btn-padding-x;
+$btn-line-height-lg: $btn-line-height;
+
+$input-btn-padding-y-sm: 1rem;
+$input-btn-padding-x-sm: 1rem;
+$input-btn-line-height-sm: 1rem;
+
+// btn lg
+$font-size-lg: 0.8125rem;
+$btn-border-radius-lg: 5px;
+$btn-padding-y-lg: 0.875rem;
+$btn-padding-x-lg: 1.6875rem;
+
+// btn sm
+$font-size-sm: 0.6875rem;
+$btn-line-height-sm: 0.75rem;
+$btn-border-radius-sm: 5px;
+$btn-padding-y-sm: 0.5rem;
+$btn-padding-x-sm: 0.875rem;
+
+$btn-link-disabled-color: $gray-500;
+
+// Badge
+
+$badge-font-size: 0.625rem;
+$badge-font-weight: 900;
+$badge-border-radius: 0;
+
+$badge-padding-y: 3px;
+$badge-padding-x: 1.2em;
+
+// Use a higher than normal value to ensure completely rounded edges when
+// customizing padding or font-size on labels.
+$badge-pill-border-radius: 100px;
+
+// Tooltip
+
+$tooltip-border-radius: 0;
+
+// Forms
+$input-btn-line-height: 1.29;
+$input-btn-line-height-sm: $input-btn-line-height;
+$input-btn-line-height-lg: $input-btn-line-height;
+
+$input-color: $gray-800;
+$input-border-color: $gray-400;
+$input-box-shadow: inset 0 1px 1px rgba($black, .075);
+
+$input-height: 2.25rem;
+$input-height-sm: 2rem;
+$input-height-lg: 2.875rem;
+
+$input-padding-y: 0.5rem;
+$input-padding-x: 0.625rem;
+
+$input-padding-y-sm: 0.375rem;
+$input-padding-x-sm: 1rem;
+
+$input-padding-y-lg: 0.8125rem;
+$input-padding-x-lg: 1rem;
+
+$font-size-lg: 0.75rem;
+$font-size-sm: $btn-font-size;
+
+$input-group-addon-color: $gray-700;
+$input-group-addon-bg: transparent;
+$input-group-addon-border-color: $gray-400;
+
+// Custom checkbox buttons
+$custom-checkbox-indicator-icon-checked-disabled: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23CACDD3' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+
+// Custom radio buttons
+$custom-radio-indicator-icon-checked-disabled: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23CACDD3'/%3E%3C/svg%3E");
+
+// Custom select
+
+$custom-select-font-size-sm: 0.875rem;
+$custom-select-height-sm: $input-height-sm !default;
+
+$custom-select-font-size-lg: 0.875rem;
+$custom-select-height-lg: $input-height-lg !default;
+
+$custom-select-padding-x: 0.625rem;
+$custom-control-indicator-size: 1.25rem;
+$custom-select-indicator-color: $gray-800;
+$custom-control-indicator-bg: $white;
+$custom-select-indicator: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMjQiIGhlaWdodD0iMTAyNCIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCI+DQo8dGl0bGU+PC90aXRsZT4NCjxnIGlkPSJpY29tb29uLWlnbm9yZSI+DQo8L2c+DQo8cGF0aCBmaWxsPSIjMDAwIiBkPSJNMTIwLjMyIDE5OS42OGwzOTEuNjggMzkwLjgyNyAzOTEuNjgtMzkwLjgyNyAxMjAuMzIgMTIwLjMyLTUxMiA1MTItNTEyLTUxMnoiPjwvcGF0aD4NCjwvc3ZnPg==");
+$custom-control-spacer-x: 0.75rem;
+
+// TODO: ask the designer to include this color in the color palette
+$input-border-color: #c0c2c7;
+
+//Dropdowns
+$dropdown-button-size: 2.25rem;
+$dropdown-font-size: $font-size-base * 0.688;
+$dropdown-menu-font-size: $font-size-base * 0.875;
+
+$dropdown-spacer: .3125rem;
+$dropdown-border-radius: 0;
+
+$dropdown-box-shadow: 0 0.1875rem 1rem 0 rgba(32, 44, 86, 0.15);
+
+//Popovers
+$popover-max-width: 328px;
+$popover-min-height: 473px;
+$popover-border-radius: 0;
+$popover-box-shadow: 0 6px 14px 0 rgba(0, 0, 0, 0.09);
+
+$popover-body-padding-x: 0;
+$popover-body-padding-y: 0;
+
+$popover-margin-top: 0;
+
+// ---- Search Modal - Popovers
+$search-items-font-size: 0.875rem;
+$search-modal-header-height: 3.75rem;
+$search-header-padding-x: 1.25rem;
+$search-header-padding-y: 1.875rem;
+
+// Modal Windows
+
+$modal-backdrop-opacity: 0.7;
+$modal-border-radius: 0.625rem;
+$modal-content-box-shadow: 0 6px 26px 0 rgba(32, 44, 86, 0.15);
+
+$modal-header-padding: 1.25rem 1.875rem;
+$modal-title-font-size: 1rem;
+
+$modal-header-border-color: $gray-300;
+
+$modal-inner-padding-x: 1.875rem;
+$modal-inner-padding-y: 1.5625rem;
+
+$modal-footer-inner-padding-x: 1.875rem;
+$modal-footer-inner-padding-y: 1.875rem;
+
+$modal-footer-jumbotron-font-size-regular: 0.875rem;
+
+// ----------------------------- Not in use ----------------
+
+// Navbar
+
+$navbar-dark-color: rgba($white, .6);
+$navbar-dark-hover-color: $white;
+
+$navbar-light-hover-color: $body-color;
+$navbar-light-active-color: $body-color;
+
+// Tables
+
+$table-border-color: rgba(0, 0, 0, 0.1);
+
+// Inputs
+
+$input-disabled-bg: $gray-200;

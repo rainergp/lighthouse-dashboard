@@ -1,0 +1,123 @@
+.nb-theme-default {
+
+	[nbInput] {
+		&.auth-section {
+			font-family: Metropolis, Roboto, "Helvetica Neue", Arial, sans-serif!important;
+			border: none;
+			border-radius: 52px;
+			color: #555;
+			height: 52px;
+			line-height: 52px;
+			padding: 0 25px;
+			font-size: 14px;
+			font-weight: 400;
+
+			&::placeholder {
+				font-size: 14px;
+				font-weight: 400;
+			}
+		}
+	}
+
+	[nbButton].btn-submit {
+		margin-left: 10px !important;
+	}
+
+	[nbButton] {
+		text-transform: initial;
+		border: none;
+		min-width: 100px;
+
+		&:focus {
+			border-color: transparent !important;
+			outline: 0 !important;
+			-webkit-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+		&.btn-large {
+			height: 52px;
+			line-height: 52px;
+			padding: 0 25px;
+			font-size: 17px;
+			font-weight: 600;
+		}
+	}
+
+	a:focus, a:hover {
+		color: #0072D8;
+	}
+
+	select:focus, input:focus {
+		outline: 0 !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+	}
+
+	nb-user {
+		&.medium .user-picture {
+			font-size: 12px;
+			line-height: 26px;
+			font-weight: 600;
+		}
+
+		.user-name {
+			font-weight: 600;
+		}
+
+		margin-right: 20px;
+	}
+
+	ng2-smart-table {
+
+		table tr td {
+			border: none;
+		}
+
+		th.ng2-smart-actions-title-add a {
+			font-size: 15px !important;
+			width: 90px;
+			height: 38px;
+			background-color: #0072D8;
+		}
+
+
+		.ng2-smart-action {
+			[class^="icon-"], [class*=" icon-"] {
+				font-size: 18px !important;
+
+				&.icon-reset-password, &.icon-archive {
+					font-size: 20px !important;
+				}
+			}
+		}
+
+		.ng2-smart-actions {
+			.ng2-smart-action-edit-edit:hover,
+
+			.ng2-smart-action-delete-delete:hover {
+				color: #220EA7!important;
+			}
+
+			a.ng2-smart-action:not(:last-child) {
+				border: none;
+			}
+		}
+
+		thead tr.ng2-smart-filters th .ng2-smart-filter{
+			input, select, input::placeholder {
+				border-color: #80bdff;
+				color: #46567b;
+			}
+		}
+	//
+	//	[nbButton]:focus{
+	//		border-color: #66afe9 !important;
+	//		outline: 0 !important;
+	//		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) !important;
+	//		box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6) !important;
+	//	}
+	}
+}
+
+
