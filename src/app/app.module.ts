@@ -3,30 +3,25 @@ import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {SharedModule} from './shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NbThemeModule, NbLayoutModule, NbActionsModule, NbSidebarModule, NbSidebarService} from '@nebular/theme';
-import {ChartModule} from 'primeng/chart';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
+import {ServiceWorkerModule} from '@angular/service-worker';
+
+// Configuration
+import {environment} from '../environments/environment';
 
 @NgModule({
 	declarations: [
 		AppComponent
 	],
 	imports: [
+		SharedModule,
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		NbThemeModule.forRoot({name: 'corporate'}),
-		NbLayoutModule,
-		NbActionsModule,
-		NbSidebarModule,
-		ChartModule,
-		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+		ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
 	],
-	providers: [
-		NbSidebarService
-	],
+	providers: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {
