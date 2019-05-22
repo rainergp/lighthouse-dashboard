@@ -35,7 +35,6 @@ import {httpInterceptorProviders} from './interceptors';
 
 // Services
 import {PushNotificationService} from './services/push-notification.service';
-import {ReportService} from './services/report.service';
 
 // Components
 import { PageNotFoundComponent } from './containers';
@@ -72,7 +71,6 @@ import { PageNotFoundComponent } from './containers';
 	],
 	providers: [
 		PushNotificationService,
-		ReportService,
 		NbSidebarService,
 		httpInterceptorProviders,
 	],

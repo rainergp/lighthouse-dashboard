@@ -10,19 +10,21 @@ import {DashboardPageComponent} from './containers/dashboard-page/dashboard-page
 
 // Components
 import {MetricChartComponent} from './components/metric-chart/metric-chart.component';
-
+import {PerformanceInfoWidgetComponent} from './components/performance-info-widget/performance-info-widget.component';
 
 @NgModule({
 	declarations: [
 		PerformancePageComponent,
 		DashboardPageComponent,
 		MetricChartComponent,
+		PerformanceInfoWidgetComponent,
 	],
 	imports: [
 		CommonModule,
 		SharedModule,
 		PrivateRoutingModule,
 	],
+	providers: [],
 	exports: [
 		MetricChartComponent
 	],
