@@ -1,7 +1,8 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {HttpErrorHandler} from '../../../shared/helpers/http-error-handler';
-import {ReportService} from '../../services/report.service';
-import {Report} from '../../../shared/models/server/report.interface';
+import {ReportService} from '../../../shared/services/api/report.service';
+import {Report} from '../../../shared/models/api/report.interface';
+import {PerformanceInfoService} from '../../services/performance-info.service';
 
 @Component({
 	selector: 'app-performance-info-widget',
@@ -10,10 +11,9 @@ import {Report} from '../../../shared/models/server/report.interface';
 })
 export class PerformanceInfoWidgetComponent extends HttpErrorHandler implements OnInit {
 
-	public report: Report;
-
 	constructor(
 		private reportService: ReportService,
+		private performanceInfoService: PerformanceInfoService,
 		injector: Injector
 	) {
 		super(injector);
@@ -26,8 +26,7 @@ export class PerformanceInfoWidgetComponent extends HttpErrorHandler implements 
 
 	fetchReport() {
 		this.reportService.getReport().subscribe(data => {
-			this.report = data;
-			console.log(this.report);
+			this.performanceInfoService.setReportData(data);
 		});
 	}
 }

@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {PerformanceInfoService} from '../../services/performance-info.service';
+import {Subscription} from 'rxjs';
 
 @Component({
 	selector: 'app-metric-chart',
@@ -7,9 +9,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MetricChartComponent implements OnInit {
 
+	private onReportDataChangeSubscription: Subscription;
+
 	public data: any;
 
-	constructor() {
+	constructor(private performanceInfoService: PerformanceInfoService,
+	) {
 		this.data = {
 			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 			datasets: [
@@ -30,6 +35,9 @@ export class MetricChartComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.onReportDataChangeSubscription = this.performanceInfoService.onReportDataChange.subscribe(data => {
+			console.log(data);
+		});
 	}
 
 }
