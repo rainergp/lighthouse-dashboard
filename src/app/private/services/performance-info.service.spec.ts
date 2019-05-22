@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { PerformanceInfoService } from './performance-info.service';
+import {PerformanceInfoService} from './performance-info.service';
 
 describe('PerformanceInfoService', () => {
 	beforeEach(() => TestBed.configureTestingModule({}));

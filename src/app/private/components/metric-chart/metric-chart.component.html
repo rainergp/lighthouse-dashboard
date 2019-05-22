@@ -1,1 +1,15 @@
-<p-chart type="line" [data]="data"></p-chart>
+<!--<p-chart type="line" [data]="data"></p-chart>-->
+
+<ngx-charts-line-chart
+	[scheme]="colorScheme"
+	[schemeType]="'linear'"
+	[results]="data"
+	[animations]="true"
+	[gradient]="true"
+	[xAxis]="true"
+	[yAxis]="true"
+	[autoScale]="true"
+	[rangeFillOpacity]="0.5"
+	[curve]="curve"
+>
+</ngx-charts-line-chart>

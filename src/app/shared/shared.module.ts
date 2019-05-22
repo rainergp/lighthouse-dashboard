@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import {
 	NbThemeModule,
@@ -63,7 +64,7 @@ import { PageNotFoundComponent } from './containers';
 		NbContextMenuModule,
 		NbActionsModule,
 		ChartModule,
-
+		NgxChartsModule,
 	],
 	declarations: [
 		PageNotFoundComponent,
@@ -98,6 +99,7 @@ import { PageNotFoundComponent } from './containers';
 		NbContextMenuModule,
 		NbActionsModule,
 		ChartModule,
+		NgxChartsModule,
 	]
 })
 
