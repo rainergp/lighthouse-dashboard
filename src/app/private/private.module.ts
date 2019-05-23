@@ -9,14 +9,14 @@ import {PerformancePageComponent} from './containers/performance-page/performanc
 import {DashboardPageComponent} from './containers/dashboard-page/dashboard-page.component';
 
 // Components
-import {MetricChartComponent} from './components/metric-chart/metric-chart.component';
+import {LineChartComponent} from './components/line-chart/line-chart.component';
 import {PerformanceInfoWidgetComponent} from './components/performance-info-widget/performance-info-widget.component';
 
 @NgModule({
 	declarations: [
 		PerformancePageComponent,
 		DashboardPageComponent,
-		MetricChartComponent,
+		LineChartComponent,
 		PerformanceInfoWidgetComponent,
 	],
 	imports: [
@@ -26,7 +26,7 @@ import {PerformanceInfoWidgetComponent} from './components/performance-info-widg
 	],
 	providers: [],
 	exports: [
-		MetricChartComponent
+		LineChartComponent
 	],
 })
 export class PrivateModule {

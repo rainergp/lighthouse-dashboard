@@ -1,15 +1,17 @@
 <!--<p-chart type="line" [data]="data"></p-chart>-->
 
 <ngx-charts-line-chart
+	[view]="[600, 200]"
+	[results]="data"
 	[scheme]="colorScheme"
 	[schemeType]="'linear'"
-	[results]="data"
 	[animations]="true"
-	[gradient]="true"
 	[xAxis]="true"
 	[yAxis]="true"
-	[autoScale]="true"
-	[rangeFillOpacity]="0.5"
 	[curve]="curve"
+	[gradient]="true"
+	[yScaleMin]="0"
+	[yScaleMax]="100"
+	[roundDomains]="false"
 >
 </ngx-charts-line-chart>

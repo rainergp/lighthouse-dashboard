@@ -4,11 +4,11 @@ import {Subscription} from 'rxjs';
 import * as d3Shape from 'd3-shape';
 
 @Component({
-	selector: 'app-metric-chart',
-	templateUrl: './metric-chart.component.html',
-	styleUrls: ['./metric-chart.component.sass']
+	selector: 'app-line-chart',
+	templateUrl: './line-chart.component.html',
+	styleUrls: ['./line-chart.component.sass']
 })
-export class MetricChartComponent implements OnInit {
+export class LineChartComponent implements OnInit {
 
 	private onReportDataChangeSubscription: Subscription;
 
@@ -26,38 +26,55 @@ export class MetricChartComponent implements OnInit {
 
 		this.data = [
 			{
-				name: 'Cyan',
+				name: 'Performance',
 				series: [
 					{
-						name: 1,
-						value: 2650
+						name: new Date('2019-05-20T12:00:00'),
+						value: 0.98 * 100
 					},
 					{
-						name: 2,
-						value: 2800
+						name: new Date('2019-05-20T24:00:00'),
+						value: 0.91 * 100
 					},
 					{
-						name: 3,
-						value: 2000
+						name: new Date('2019-05-21T06:00:00'),
+						value: 0.93 * 100
 					},
 					{
-						name: 4,
-						value: 2500
+						name: new Date('2019-05-21T12:00:00'),
+						value: 1.0 * 100
 					},
 					{
-						name: 6,
-						value: 3100
+						name: new Date('2019-05-21T18:00:00'),
+						value: 0.98 * 100
 					},
 					{
-						name: 7,
-						value: 2350
+						name: new Date('2019-05-21T24:00:00'),
+						value: 0.94 * 100
+					},
+					{
+						name: new Date('2019-05-23T12:00:00'),
+						value: 0.93 * 100
+					},
+					{
+						name: new Date('2019-05-23T24:00:00'),
+						value: 0.88 * 100
+					},
+					{
+						name: new Date('2019-05-24T12:00:00'),
+						value: 0.2 * 100
+					},
+					{
+						name: new Date('2019-05-24T24:00:00'),
+						value: 0.5 * 100
 					}
 				]
 			}
 		];
 
 		this.colorScheme = {
-			domain: ['#C80205', '#F63206', '#F56306', '#f6f804', '#63C707', '#39b304']
+			// domain: ['#43d204', '#f6f804', '#F56306', '#C80205']
+			domain: ['#C80205', '#F56306', '#f6f804', '#43d204']
 		};
 
 
