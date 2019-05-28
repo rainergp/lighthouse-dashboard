@@ -11,6 +11,8 @@ import {DashboardPageComponent} from './containers/dashboard-page/dashboard-page
 // Components
 import {LineChartComponent} from './components/line-chart/line-chart.component';
 import {PerformanceInfoWidgetComponent} from './components/performance-info-widget/performance-info-widget.component';
+import { MetricInfoWidgetComponent } from './components/metric-info-widget/metric-info-widget.component';
+import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
 
 @NgModule({
 	declarations: [
@@ -18,6 +20,8 @@ import {PerformanceInfoWidgetComponent} from './components/performance-info-widg
 		DashboardPageComponent,
 		LineChartComponent,
 		PerformanceInfoWidgetComponent,
+		MetricInfoWidgetComponent,
+		DonutChartComponent,
 	],
 	imports: [
 		CommonModule,

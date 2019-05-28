@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-performance-page',
-  templateUrl: './performance-page.component.html',
-  styleUrls: ['./performance-page.component.sass']
+	selector: 'app-performance-page',
+	templateUrl: './performance-page.component.html',
+	styleUrls: ['./performance-page.component.scss']
 })
 export class PerformancePageComponent implements OnInit {
 
-  constructor() { }
+	constructor() {
+	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
 }

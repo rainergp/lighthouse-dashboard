@@ -1,4 +1,4 @@
-import {MetricValues} from './metric-values';
+import {MetricValues} from './metric-values.interface';
 
 export interface Metrics {
 	firstContentfulPaint: MetricValues;
