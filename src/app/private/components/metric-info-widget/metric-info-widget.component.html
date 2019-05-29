@@ -1,3 +1,15 @@
-<p>
-  metric-info-widget works!
-</p>
+<nb-card
+	style="width: 300px; float: left; margin: 0 20px 20px 0;"
+>
+	<nb-card-header>{{title}}</nb-card-header>
+	<nb-card-body>
+		<div style="width: 100px; height: 60px; float: left; margin: 0 20px 0 0;">
+			<p>Latest</p>
+			<p>{{latestValue}}</p>
+		</div>
+		<div style="width: 100px; height: 60px; float: left; margin: 0;">
+			<p>Median</p>
+			<p>{{medianValue}}</p>
+		</div>
+	</nb-card-body>
+</nb-card>

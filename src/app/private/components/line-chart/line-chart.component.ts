@@ -20,8 +20,6 @@ export class LineChartComponent implements OnInit {
 	constructor(private performanceInfoService: PerformanceInfoService,
 	) {
 
-		// this.chartView = [700, 400];
-
 		this.curve = d3Shape.curveStep;
 
 		this.data = [];

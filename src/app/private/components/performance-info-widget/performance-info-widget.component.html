@@ -1,10 +1,61 @@
-<app-donut-chart
-	percentage="99"
-></app-donut-chart>
-<app-donut-chart
-	percentage="60"
-></app-donut-chart>
-<app-donut-chart
-	percentage="30"
-></app-donut-chart>
+<h5>Performance Overview</h5>
+<p>DESKTOP / Celebrity Cruises</p>
+<!--<app-donut-chart-->
+<!--	percentage="89"-->
+<!--&gt;</app-donut-chart>-->
+<!--<app-donut-chart-->
+<!--	percentage="60"-->
+<!--&gt;</app-donut-chart>-->
+<!--<app-donut-chart-->
+<!--	percentage="30"-->
+<!--&gt;</app-donut-chart>-->
+<app-metric-info-widget
+	[title]="'Performance'"
+	[latestValue]="(report === undefined ? 0 : report.scores.performance * 100).toString() + '/100'"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+<app-metric-info-widget
+	[title]="'First Contentful Paint'"
+	[latestValue]="report === undefined ? '' : report.metrics.firstContentfulPaint.displayValue"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+<app-metric-info-widget
+	[title]="'First Meaningful Paint'"
+	[latestValue]="report === undefined ? '' : report.metrics.firstMeaningfulPaint.displayValue"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+<app-metric-info-widget
+	[title]="'Speed Index'"
+	[latestValue]="report === undefined ? '' : report.metrics.speedIndex.displayValue"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+<app-metric-info-widget
+	[title]="'First CPU Idle'"
+	[latestValue]="report === undefined ? '' : report.metrics.firstCPUIdle.displayValue"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+<app-metric-info-widget
+	[title]="'Time to Interactive'"
+	[latestValue]="report === undefined ? '' : report.metrics.interactive.displayValue"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+<app-metric-info-widget
+	[title]="'Max Potential First Input Delay'"
+	[latestValue]="report === undefined ? '' : report.metrics.maxPotentialFID.displayValue"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+<app-metric-info-widget
+	[title]="'Estimated Input Latency'"
+	[latestValue]="report === undefined ? '' : report.metrics.estimatedInputLatency.displayValue"
+	[medianValue]="'-'"
+></app-metric-info-widget>
+
+
 <app-line-chart></app-line-chart>

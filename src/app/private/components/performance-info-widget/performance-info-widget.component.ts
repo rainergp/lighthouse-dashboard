@@ -6,6 +6,7 @@ import {ChartData} from '../../models/chart-data.interface';
 import {ChartDataSerie} from '../../models/chart-data-serie.interface';
 import {PushNotificationService} from '../../../shared/services/push-notification.service';
 import {Subscription} from 'rxjs';
+import {Report} from '../../../shared/models/api/report.interface';
 
 @Component({
 	selector: 'app-performance-info-widget',
@@ -15,6 +16,8 @@ import {Subscription} from 'rxjs';
 export class PerformanceInfoWidgetComponent extends HttpErrorHandler implements OnInit {
 
 	private onUpdatedDataNotificationSubscription: Subscription;
+
+	public report: Report;
 
 	constructor(
 		private reportService: ReportService,
@@ -27,6 +30,7 @@ export class PerformanceInfoWidgetComponent extends HttpErrorHandler implements 
 
 	ngOnInit() {
 		super.ngOnInit();
+
 		this.fetchReport();
 		this.onUpdatedDataNotificationSubscription = this.pushNotificationService.onUpdatedDataNotification.subscribe(() => {
 			this.fetchReport();
@@ -34,7 +38,9 @@ export class PerformanceInfoWidgetComponent extends HttpErrorHandler implements 
 	}
 
 	fetchReport() {
-		this.reportService.getReport().subscribe(report => {
+		this.reportService.getReport().subscribe((report: any) => {
+			this.report = report.data[0];
+			console.log(this.report);
 			this.performanceInfoService.setChartData(this.parseDataForChart(report));
 		});
 	}
