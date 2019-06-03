@@ -37,4 +37,24 @@ export class DonutChartComponent implements OnInit {
 	ngOnInit() {
 	}
 
+	private polarToCartesian(centerX, centerY, radius, angleInDegrees) {
+		const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+
+		return {
+			x: centerX + (radius * Math.cos(angleInRadians)),
+			y: centerY + (radius * Math.sin(angleInRadians))
+		};
+	}
+
+	public describeArc(x, y, radius, startAngle, endAngle) {
+
+		const start = this.polarToCartesian(x, y, radius, endAngle);
+		const end = this.polarToCartesian(x, y, radius, startAngle);
+
+		const largeArcFlag = endAngle - startAngle <= 180 ? '0' : '1';
+
+		// return 'M52 102 a 50 50 0 0 1 0 -100';
+		return `M${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${end.x} ${end.y}`;
+	}
+
 }

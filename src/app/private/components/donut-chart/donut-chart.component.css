@@ -1,17 +1,16 @@
 .circular-chart {
   display: block;
-  max-width: 50px;
-  max-height: 50px;
+  width: 200px;
+  height: 200px;
 }
 .circular-chart .circle {
-  stroke: #000;
+  stroke: url(#grad);
   fill: none;
-  stroke-width: 4;
+  stroke-width: 20;
   stroke-linecap: round;
-  animation: progress 1s ease-out forwards;
-}
-.circular-chart.green .circle {
-  stroke: #43d204;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 1.5s linear forwards;
 }
 .circular-chart.orange .circle {
   stroke: #F56306;
@@ -27,13 +26,16 @@
 .circular-chart .percentage {
   fill: #666;
   font-family: sans-serif;
-  font-size: 0.5em;
+  font-size: 0.8em;
   text-anchor: middle;
 }
 
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0 100;
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
   }
 }
 

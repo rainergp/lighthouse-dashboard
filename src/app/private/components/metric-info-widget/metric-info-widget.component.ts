@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Metric} from '../../models/metric.interface';
 import {MetricValueType} from '../../models/enums/metric-value-type.enum';
+import * as eva from 'eva-icons';
 
 @Component({
 	selector: 'app-metric-info-widget',
@@ -10,6 +10,8 @@ import {MetricValueType} from '../../models/enums/metric-value-type.enum';
 export class MetricInfoWidgetComponent implements OnInit {
 
 	@Input() public title = '';
+	@Input() public description = null;
+	@Input() public referenceLink = '';
 	@Input() public valueType = MetricValueType.Percentage;
 	@Input() public latestValue = '';
 	@Input() public medianValue = '';

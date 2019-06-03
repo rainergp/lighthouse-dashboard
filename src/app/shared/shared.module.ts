@@ -24,9 +24,8 @@ import {
 	NbUserModule,
 	NbContextMenuModule,
 	NbActionsModule,
+	NbPopoverModule,
 } from '@nebular/theme';
-
-import {ChartModule} from 'primeng/chart';
 
 // Helpers
 import {HttpErrorHandler} from './helpers/http-error-handler';
@@ -63,7 +62,7 @@ import { PageNotFoundComponent } from './containers';
 		NbUserModule,
 		NbContextMenuModule,
 		NbActionsModule,
-		ChartModule,
+		NbPopoverModule,
 		NgxChartsModule,
 	],
 	declarations: [
@@ -98,7 +97,7 @@ import { PageNotFoundComponent } from './containers';
 		NbUserModule,
 		NbContextMenuModule,
 		NbActionsModule,
-		ChartModule,
+		NbPopoverModule,
 		NgxChartsModule,
 	]
 })

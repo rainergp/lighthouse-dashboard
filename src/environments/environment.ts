@@ -1,5 +1,6 @@
 import {getServicesConfig} from './configs/services.config';
 
+const filesHostUrl = 'http://localhost:3000/reports/';
 const serviceApiBaseUrl = 'http://localhost:3000/api';
 
 export const servicesConfig = getServicesConfig(
@@ -8,5 +9,6 @@ export const servicesConfig = getServicesConfig(
 
 export const environment = {
 	production: false,
-	services: servicesConfig
+	services: servicesConfig,
+	filesHostUrl
 };

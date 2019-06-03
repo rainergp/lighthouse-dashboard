@@ -30,9 +30,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/@nebular/theme/styles/prebuilt/corporate.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
+							"node_modules/eva-icons/style/scss/eva-icons.scss",
               "src/sass/styles.scss"
             ],
             "scripts": [

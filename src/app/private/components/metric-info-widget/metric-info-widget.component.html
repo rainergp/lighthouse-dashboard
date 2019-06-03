@@ -1,13 +1,19 @@
-<nb-card
-	style="width: 300px; float: left; margin: 0 20px 20px 0;"
->
-	<nb-card-header>{{title}}</nb-card-header>
+<nb-card>
+	<nb-card-header>{{title}}
+		<i *ngIf="description" class="eva eva-alert-circle-outline" [nbPopover]="templateRef" nbPopoverMode="hover"></i>
+		<ng-template #templateRef>
+			<div class="popover-wrapper">
+				<p>{{description}}</p>
+				<a href="{{referenceLink}}" target="_blank">Learn more.</a>
+			</div>
+		</ng-template>
+	</nb-card-header>
 	<nb-card-body>
-		<div style="width: 100px; height: 60px; float: left; margin: 0 20px 0 0;">
+		<div class="value-wrapper">
 			<p>Latest</p>
 			<p>{{latestValue}}</p>
 		</div>
-		<div style="width: 100px; height: 60px; float: left; margin: 0;">
+		<div class="value-wrapper">
 			<p>Median</p>
 			<p>{{medianValue}}</p>
 		</div>

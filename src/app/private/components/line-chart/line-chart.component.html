@@ -14,5 +14,18 @@
 	[yScaleMax]="100"
 	[roundDomains]="false"
 	[timeline]="true"
+	(click)="onSelect($event)"
 >
+	<ng-template #tooltipTemplate let-model="model">
+		<p>Date: <span>{{model.name | date:'medium'}}</span></p>
+		<p>Performance: <span>{{model.value}} /100</span></p>
+		<p>First Contentful Paint: <span>{{model.data.metrics.firstContentfulPaint.displayValue}}</span></p>
+		<p>First Meaningful Paint: <span>{{model.data.metrics.firstMeaningfulPaint.displayValue}}</span></p>
+		<p>Speed Index: <span>{{model.data.metrics.speedIndex.displayValue}}</span></p>
+		<p>First CPU Idle: <span>{{model.data.metrics.firstCPUIdle.displayValue}}</span></p>
+		<p>Time to Interactive: <span>{{model.data.metrics.interactive.displayValue}}</span></p>
+		<p>Max Potential First Input Delay: <span>{{model.data.metrics.maxPotentialFID.displayValue}}</span></p>
+		<p>Estimated Input Latency: <span>{{model.data.metrics.estimatedInputLatency.displayValue}}</span></p>
+
+	</ng-template>
 </ngx-charts-line-chart>
