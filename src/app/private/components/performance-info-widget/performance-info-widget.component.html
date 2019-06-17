@@ -1,69 +1,79 @@
-<h5>Performance Overview</h5>
-<p>DESKTOP / Celebrity Cruises</p>
+<p>{{title}}</p>
 <!--<app-donut-chart-->
 <!--	percentage="90"-->
 <!--&gt;</app-donut-chart>-->
-<app-metric-info-widget
-	[title]="'Performance'"
-	[latestValue]="(report === undefined ? 0 : report.scores.performance * 100).toString() + '/100'"
-	[medianValue]="(medianPerformance === undefined ? 0 : medianPerformance).toString() + '/100'"
-></app-metric-info-widget>
+<nb-layout>
+	<nb-layout-column>
+		<app-medians-info-widget></app-medians-info-widget>
+	</nb-layout-column>
+	<nb-layout-column *ngIf="report">
+		<app-metric-info-widget
+			[title]="'Performance'"
+			[latestValue]="(report === undefined ? 0 : report.scores.performance * 100).toString() + '/100'"
+			[medianValue]="(medianPerformance === undefined ? 0 : medianPerformance).toString() + '/100'"
+		></app-metric-info-widget>
 
-<app-metric-info-widget
-	[title]="'First Contentful Paint'"
-	[description]="'First Contentful Paint marks the time at which the first text or image is painted.'"
-	[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint?utm_source=lighthouse&utm_medium=node'"
-	[latestValue]="report === undefined ? '' : report.metrics.firstContentfulPaint.displayValue"
-	[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.firstContentfulPaint.toString() + ' s'"
-></app-metric-info-widget>
+		<app-metric-info-widget
+			[title]="'First Contentful Paint'"
+			[description]="'First Contentful Paint marks the time at which the first text or image is painted.'"
+			[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/first-contentful-paint?utm_source=lighthouse&utm_medium=node'"
+			[latestValue]="report === undefined ? '' : report.metrics.firstContentfulPaint.displayValue"
+			[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.firstContentfulPaint.toString() + ' s'"
+		></app-metric-info-widget>
 
-<app-metric-info-widget
-	[title]="'First Meaningful Paint'"
-	[description]="'First Meaningful Paint measures when the primary content of a page is visible.'"
-	[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint?utm_source=lighthouse&utm_medium=node'"
-	[latestValue]="report === undefined ? '' : report.metrics.firstMeaningfulPaint.displayValue"
-	[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.firstMeaningfulPaint.toString() + ' s'"
-></app-metric-info-widget>
+		<app-metric-info-widget
+			[title]="'First CPU Idle'"
+			[description]="'First CPU Idle marks the first time at which the page\'s main thread is quiet enough to handle input.'"
+			[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/first-interactive?utm_source=lighthouse&utm_medium=node'"
+			[latestValue]="report === undefined ? '' : report.metrics.firstCPUIdle.displayValue"
+			[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.firstCPUIdle.toString() + ' s'"
+		></app-metric-info-widget>
 
-<app-metric-info-widget
-	[title]="'Speed Index'"
-	[description]="'Speed Index shows how quickly the contents of a page are visibly populated.'"
-	[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/speed-index?utm_source=lighthouse&utm_medium=node'"
-	[latestValue]="report === undefined ? '' : report.metrics.speedIndex.displayValue"
-	[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.speedIndex.toString() + ' s'"
-></app-metric-info-widget>
+		<app-metric-info-widget
+			[title]="'Time to Interactive'"
+			[description]="'Time to interactive is the amount of time it takes for the page to become fully interactive.'"
+			[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive?utm_source=lighthouse&utm_medium=node'"
+			[latestValue]="report === undefined ? '' : report.metrics.interactive.displayValue"
+			[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.interactive.toString() + ' s'"
+		></app-metric-info-widget>
 
-<app-metric-info-widget
-	[title]="'First CPU Idle'"
-	[description]="'First CPU Idle marks the first time at which the page\'s main thread is quiet enough to handle input.'"
-	[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/first-interactive?utm_source=lighthouse&utm_medium=node'"
-	[latestValue]="report === undefined ? '' : report.metrics.firstCPUIdle.displayValue"
-	[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.firstCPUIdle.toString() + ' s'"
-></app-metric-info-widget>
+	</nb-layout-column>
 
-<app-metric-info-widget
-	[title]="'Time to Interactive'"
-	[description]="'Time to interactive is the amount of time it takes for the page to become fully interactive.'"
-	[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive?utm_source=lighthouse&utm_medium=node'"
-	[latestValue]="report === undefined ? '' : report.metrics.interactive.displayValue"
-	[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.interactive.toString() + ' s'"
-></app-metric-info-widget>
+	<nb-layout-column *ngIf="report">
+		<app-metric-info-widget
+			[title]="'First Meaningful Paint'"
+			[description]="'First Meaningful Paint measures when the primary content of a page is visible.'"
+			[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/first-meaningful-paint?utm_source=lighthouse&utm_medium=node'"
+			[latestValue]="report === undefined ? '' : report.metrics.firstMeaningfulPaint.displayValue"
+			[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.firstMeaningfulPaint.toString() + ' s'"
+		></app-metric-info-widget>
 
-<app-metric-info-widget
-	[title]="'Max Potential First Input Delay'"
-	[description]="'The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task.'"
-	[referenceLink]="'https://developers.google.com/web/updates/2018/05/first-input-delay?utm_source=lighthouse&utm_medium=node'"
-	[latestValue]="report === undefined ? '' : report.metrics.maxPotentialFID.displayValue"
-	[medianValue]="medianMetrics === undefined ? '0 ms' : medianMetrics.maxPotentialFID.toString() + ' ms'"
-></app-metric-info-widget>
+		<app-metric-info-widget
+			[title]="'Speed Index'"
+			[description]="'Speed Index shows how quickly the contents of a page are visibly populated.'"
+			[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/speed-index?utm_source=lighthouse&utm_medium=node'"
+			[latestValue]="report === undefined ? '' : report.metrics.speedIndex.displayValue"
+			[medianValue]="medianMetrics === undefined ? '0.0 s' : medianMetrics.speedIndex.toString() + ' s'"
+		></app-metric-info-widget>
 
-<app-metric-info-widget
-	[title]="'Estimated Input Latency'"
-	[description]="'Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy.'"
-	[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency'"
-	[latestValue]="report === undefined ? '' : report.metrics.estimatedInputLatency.displayValue"
-	[medianValue]="medianMetrics === undefined ? '0 ms' : medianMetrics.estimatedInputLatency.toString() + ' ms'"
-></app-metric-info-widget>
+		<app-metric-info-widget
+			[title]="'Max Potential FID'"
+			[description]="'The maximum potential First Input Delay that your users could experience is the duration, in milliseconds, of the longest task.'"
+			[referenceLink]="'https://developers.google.com/web/updates/2018/05/first-input-delay?utm_source=lighthouse&utm_medium=node'"
+			[latestValue]="report === undefined ? '' : report.metrics.maxPotentialFID.displayValue"
+			[medianValue]="medianMetrics === undefined ? '0 ms' : medianMetrics.maxPotentialFID.toString() + ' ms'"
+		></app-metric-info-widget>
 
+		<app-metric-info-widget
+			[title]="'Estimated Input Latency'"
+			[description]="'Estimated Input Latency is an estimate of how long your app takes to respond to user input, in milliseconds, during the busiest 5s window of page load. If your latency is higher than 50 ms, users may perceive your app as laggy.'"
+			[referenceLink]="'https://developers.google.com/web/tools/lighthouse/audits/estimated-input-latency'"
+			[latestValue]="report === undefined ? '' : report.metrics.estimatedInputLatency.displayValue"
+			[medianValue]="medianMetrics === undefined ? '0 ms' : medianMetrics.estimatedInputLatency.toString() + ' ms'"
+		></app-metric-info-widget>
+	</nb-layout-column>
 
-<app-line-chart></app-line-chart>
+</nb-layout>
+<app-line-chart
+	[data]="chartData"
+></app-line-chart>

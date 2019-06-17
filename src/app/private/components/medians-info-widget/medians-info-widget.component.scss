@@ -1,11 +1,13 @@
 :host {
+	padding: 10px 10px 10px 0;
+	width: 100%;
+	height: 331px;
 	float: left;
-	width: 50%;
-	padding: 10px;
 }
 
 nb-card {
 	width: 100%;
+	height: 100%;
 	margin: 0;
 
 	nb-card-header {
@@ -22,19 +24,4 @@ nb-card {
 			float: left;
 		}
 	}
-}
-
-i {
-	cursor: pointer;
-	float: right;
-	font-size: 20px;
-	&:before {
-		color: #73a1ff;;
-	}
-}
-
-.popover-wrapper {
-	min-width: 246px;
-	max-width: 275px;
-	padding: 15px;
 }

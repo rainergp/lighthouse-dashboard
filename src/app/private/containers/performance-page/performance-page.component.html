@@ -1,3 +1,14 @@
 <div class="col-md-12">
-	<app-performance-info-widget></app-performance-info-widget>
+	<h5>Performance Overview</h5>
+	<h5><sup>(Median values are calculated from the last 24 hrs)</sup></h5>
+
+	<app-performance-info-widget
+		[deviceType]="deviceType.Desktop"
+		[data]="data"
+	></app-performance-info-widget>
+
+	<app-performance-info-widget
+		[deviceType]="deviceType.Mobile"
+		[data]="data"
+	></app-performance-info-widget>
 </div>

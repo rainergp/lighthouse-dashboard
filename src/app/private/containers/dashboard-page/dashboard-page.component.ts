@@ -22,6 +22,8 @@ export class DashboardPageComponent implements OnInit {
 	}
 
 	public ngOnInit(): void {
+
+		// TODO: Move this logic to a service
 		if (this.swUpdate.isEnabled) {
 			this.swPush
 				.requestSubscription({
@@ -49,6 +51,7 @@ export class DashboardPageComponent implements OnInit {
 			});
 		}
 	}
+
 	toggle() {
 		this.sidebarService.toggle(true);
 		return false;

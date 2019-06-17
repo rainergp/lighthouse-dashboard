@@ -1,6 +1,6 @@
 <nb-card>
 	<nb-card-header>{{title}}
-		<i *ngIf="description" class="eva eva-alert-circle-outline" [nbPopover]="templateRef" nbPopoverMode="hover"></i>
+		<i *ngIf="description" class="eva eva-alert-circle-outline" [nbPopover]="templateRef" nbPopoverTrigger="hover"></i>
 		<ng-template #templateRef>
 			<div class="popover-wrapper">
 				<p>{{description}}</p>
@@ -15,6 +15,7 @@
 		</div>
 		<div class="value-wrapper">
 			<p>Median</p>
+<!--			<p>Median <sub>(last 24 hrs)</sub></p>-->
 			<p>{{medianValue}}</p>
 		</div>
 	</nb-card-body>

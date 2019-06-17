@@ -1,83 +1,99 @@
-import {Component, Injector, OnInit} from '@angular/core';
-import {HttpErrorHandler} from '../../../shared/helpers/http-error-handler';
-import {ReportService} from '../../../shared/services/api/report.service';
-import {PerformanceInfoService} from '../../services/performance-info.service';
+import {Component, Injector, Input, OnInit} from '@angular/core';
 import {ChartData} from '../../models/chart-data.interface';
 import {ChartDataSerie} from '../../models/chart-data-serie.interface';
-import {PushNotificationService} from '../../../shared/services/push-notification.service';
-import {Subscription} from 'rxjs';
 import {Report} from '../../../shared/models/api/report.interface';
+import {DeviceType} from '../../../shared/models/enums/device-type.enum';
 
 @Component({
 	selector: 'app-performance-info-widget',
 	templateUrl: './performance-info-widget.component.html',
 	styleUrls: ['./performance-info-widget.component.scss']
 })
-export class PerformanceInfoWidgetComponent extends HttpErrorHandler implements OnInit {
+export class PerformanceInfoWidgetComponent implements OnInit {
+	get deviceType(): DeviceType {
+		return this._deviceType;
+	}
 
-	private onUpdatedDataNotificationSubscription: Subscription;
+	@Input() set deviceType(value: DeviceType) {
+		this._deviceType = value;
 
+		this.title = `${this.deviceType === DeviceType.Desktop ? 'DESKTOP' : 'MOBILE'} / Celebrity Cruises`;
+	}
+
+	get data(): any {
+		return this._data;
+	}
+
+	@Input() set data(value: any) {
+		this._data = value;
+
+		if (value && value.length > 0) {
+			this.setReport(value);
+		}
+	}
+
+	// tslint:disable-next-line:variable-name
+	private _deviceType: DeviceType;
+	// tslint:disable-next-line:variable-name
+	private _data: any;
+
+	public chartData: ChartData[];
+	public title: string;
 	public report: Report;
 	public medianPerformance: number;
 	public medianMetrics: any;
 
-	constructor(
-		private reportService: ReportService,
-		private performanceInfoService: PerformanceInfoService,
-		private pushNotificationService: PushNotificationService,
-		injector: Injector
-	) {
-		super(injector);
+	constructor() {
 	}
 
 	ngOnInit() {
-		super.ngOnInit();
-
-		this.fetchReport();
-		this.onUpdatedDataNotificationSubscription = this.pushNotificationService.onUpdatedDataNotification.subscribe(() => {
-			this.fetchReport();
-		});
 	}
 
-	fetchReport() {
-		this.reportService.getReport().subscribe((report: any) => {
-			this.report = report.data[0];
-			this.performanceInfoService.setChartData(this.parseDataForChart(report));
-		});
+	setReport(data) {
+		const filteredData = data.filter(item => item.deviceType === this.deviceType);
+
+		if (filteredData && filteredData.length > 0) {
+			this.report = filteredData[0];
+
+			this.chartData = this.parseDataForChart(filteredData);
+		}
 	}
 
-	private parseDataForChart(report): ChartData[] {
+	private parseDataForChart(dataList): ChartData[] {
 
 		const series: ChartDataSerie[] = [];
 		const data = {};
 
-		let count = 0;
-		let performanceSum = 0;
-		let firstContentfulPaintSum = 0;
-		let firstMeaningfulPaintSum = 0;
-		let speedIndexSum = 0;
-		let firstCPUIdleSum = 0;
-		let interactiveSum = 0;
-		let estimatedInputLatencySum = 0;
-		let maxPotentialFIDSum = 0;
+		let counter = 0;
 
-		report.data.forEach((item, idx) => {
+		const performanceArr = [];
+		const firstContentfulPaintArr = [];
+		const firstMeaningfulPaintArr = [];
+		const speedIndexArr = [];
+		const firstCPUIdleArr = [];
+		const interactiveArr = [];
+		const estimatedInputLatencyArr = [];
+		const maxPotentialFIDArr = [];
 
-			if (idx < 48) {
-				count++;
-				performanceSum += item.scores.performance * 100;
-				firstContentfulPaintSum += item.metrics.firstContentfulPaint.numericValue;
-				firstMeaningfulPaintSum += item.metrics.firstMeaningfulPaint.numericValue;
-				speedIndexSum += item.metrics.speedIndex.numericValue;
-				firstCPUIdleSum += item.metrics.firstCPUIdle.numericValue;
-				interactiveSum += item.metrics.interactive.numericValue;
-				estimatedInputLatencySum += item.metrics.estimatedInputLatency.numericValue;
-				maxPotentialFIDSum += item.metrics.maxPotentialFID.numericValue;
+		dataList.forEach((item, index) => {
+
+			if (index < 96) {
+				performanceArr.push(item.scores.performance);
+				firstContentfulPaintArr.push(item.metrics.firstContentfulPaint.numericValue);
+				firstMeaningfulPaintArr.push(item.metrics.firstMeaningfulPaint.numericValue);
+				speedIndexArr.push(item.metrics.speedIndex.numericValue);
+				firstCPUIdleArr.push(item.metrics.firstCPUIdle.numericValue);
+				interactiveArr.push(item.metrics.interactive.numericValue);
+				estimatedInputLatencyArr.push(item.metrics.estimatedInputLatency.numericValue);
+				maxPotentialFIDArr.push(item.metrics.maxPotentialFID.numericValue);
+				counter++;
 			}
 
-			series[idx] = {
+			series[index] = {
 				name: new Date(item.fetchTime),
 				value: item.scores.performance * 100,
+				// min: 0,
+				// max: 100,
 				data: {
 					metrics: item.metrics,
 					_id: item._id
@@ -86,17 +102,21 @@ export class PerformanceInfoWidgetComponent extends HttpErrorHandler implements 
 			};
 		});
 
-		this.medianPerformance = Math.round(performanceSum / count);
+		const idx = counter / 2;
+
+		this.medianPerformance = Math.round(performanceArr.sort((n1, n2) => n1 - n2)[idx] * 100);
 
 		this.medianMetrics = {
-			firstContentfulPaint: (firstContentfulPaintSum / count / 1000).toFixed(1),
-			firstMeaningfulPaint: (firstMeaningfulPaintSum / count / 1000).toFixed(1),
-			speedIndex: (speedIndexSum / count / 1000).toFixed(1),
-			firstCPUIdle: (firstCPUIdleSum / count / 1000).toFixed(1),
-			interactive: (interactiveSum / count / 1000).toFixed(1),
-			estimatedInputLatency: Math.round(estimatedInputLatencySum / count),
-			maxPotentialFID: Math.round(maxPotentialFIDSum / count)
+			firstContentfulPaint: (firstContentfulPaintArr.sort((n1, n2) => n1 - n2)[idx] / 1000).toFixed(1),
+			firstMeaningfulPaint: (firstMeaningfulPaintArr.sort((n1, n2) => n1 - n2)[idx] / 1000).toFixed(1),
+			speedIndex: (speedIndexArr.sort((n1, n2) => n1 - n2)[idx] / 1000).toFixed(1),
+			firstCPUIdle: (firstCPUIdleArr.sort((n1, n2) => n1 - n2)[idx] / 1000).toFixed(1),
+			interactive: (interactiveArr.sort((n1, n2) => n1 - n2)[idx] / 1000).toFixed(1),
+			estimatedInputLatency: Math.round(estimatedInputLatencyArr.sort((n1, n2) => n1 - n2)[idx]),
+			maxPotentialFID: Math.round(maxPotentialFIDArr.sort((n1, n2) => n1 - n2)[idx])
 		};
+
+		console.log(data);
 
 		return [{
 			name: 'Performance',

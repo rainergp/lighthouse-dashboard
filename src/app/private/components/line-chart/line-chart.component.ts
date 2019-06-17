@@ -1,6 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {PerformanceInfoService} from '../../services/performance-info.service';
-import {Subscription} from 'rxjs';
+import {Component, Input, OnInit} from '@angular/core';
 import * as d3Shape from 'd3-shape';
 import {environment} from '../../../../environments/environment';
 
@@ -11,16 +9,21 @@ import {environment} from '../../../../environments/environment';
 })
 export class LineChartComponent implements OnInit {
 
-	private onReportDataChangeSubscription: Subscription;
+	get data(): any {
+		return this._data;
+	}
 
-	public data: any;
-	public chartView: any[];
+	@Input() set data(value: any) {
+		this._data = value;
+	}
+
+
+	// tslint:disable-next-line:variable-name
+	private _data: any;
 	public colorScheme: object;
 	public curve: any;
 
-	constructor(
-		private performanceInfoService: PerformanceInfoService,
-	) {
+	constructor() {
 
 		this.curve = d3Shape.curveStep;
 
@@ -32,11 +35,7 @@ export class LineChartComponent implements OnInit {
 
 	}
 
-	ngOnInit() {
-		this.onReportDataChangeSubscription = this.performanceInfoService.onReportDataChange.subscribe(data => {
-			this.data = data;
-		});
-	}
+	ngOnInit() {}
 
 	onSelect(e: any) {
 		// TODO: This is a hack to be able to get the index when a circle is clicked on the chart.

@@ -14156,7 +14156,7 @@ template {
   line-height: 1.25;
   color: #a4abb3;
   background: #f1f5f8;
-  min-height: 100vh; }
+  min-height: 0; }
 .nb-theme-corporate nb-layout .layout nb-layout-header {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 1rem;
@@ -14172,10 +14172,10 @@ template {
 .nb-theme-corporate nb-layout .layout nb-layout-header nav a:focus, .nb-theme-corporate nb-layout .layout nb-layout-header nav a:active, .nb-theme-corporate nb-layout .layout nb-layout-header nav a:hover {
           color: #f7fafb; }
 .nb-theme-corporate nb-layout .layout nb-layout-header ~ .layout-container {
-      min-height: calc(100vh - 4.75rem); }
+      min-height: calc(0 - 4.75rem); }
 .nb-theme-corporate nb-layout .layout nb-layout-header.fixed ~ .layout-container {
       padding-top: 4.75rem;
-      min-height: 100vh; }
+      min-height: 0; }
 .nb-theme-corporate nb-layout .layout nb-layout-header.fixed ~ .layout-container > nb-sidebar > .main-container {
       height: calc(100vh - 4.75rem); }
 .nb-theme-corporate nb-layout .layout .layout-container nb-sidebar.fixed {

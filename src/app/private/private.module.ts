@@ -13,6 +13,7 @@ import {LineChartComponent} from './components/line-chart/line-chart.component';
 import {PerformanceInfoWidgetComponent} from './components/performance-info-widget/performance-info-widget.component';
 import { MetricInfoWidgetComponent } from './components/metric-info-widget/metric-info-widget.component';
 import { DonutChartComponent } from './components/donut-chart/donut-chart.component';
+import { MediansInfoWidgetComponent } from './components/medians-info-widget/medians-info-widget.component';
 
 @NgModule({
 	declarations: [
@@ -22,6 +23,7 @@ import { DonutChartComponent } from './components/donut-chart/donut-chart.compon
 		PerformanceInfoWidgetComponent,
 		MetricInfoWidgetComponent,
 		DonutChartComponent,
+		MediansInfoWidgetComponent,
 	],
 	imports: [
 		CommonModule,
